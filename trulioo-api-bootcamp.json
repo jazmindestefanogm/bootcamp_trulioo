@@ -1,0 +1,202 @@
+{
+  "uuid": "8db0d862-5fcc-40b0-a9f8-e98d377fef66",
+  "lastMigration": 28,
+  "name": "Trulioo api",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3002,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "63146d4a-c5c1-4ed0-8414-ebf73d49f253",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "short_code",
+      "responses": [
+        {
+          "uuid": "4bfe3f71-7bdf-48b5-b4b1-198ae61d0457",
+          "body": "ABCDE",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "207bf930-994f-45bd-ac5d-6c6984b5e888",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "signup",
+      "responses": [
+        {
+          "uuid": "d2963aed-7cc2-48d9-b20c-1ac4947c72da",
+          "body": "¡Registro exitoso!",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "password",
+              "value": "(?=.*[A-Z])(?=.*[0-9]).{8,}",
+              "invert": false,
+              "operator": "regex"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "695aee01-8f43-40ab-a28d-2a865ad86262",
+          "body": "La contraseña no cumple con los requisitos.",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "fd3b39e6-49f7-4ac8-8576-c11a9dd30ce7",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "signin",
+      "responses": [
+        {
+          "uuid": "dbe23783-13e0-41a6-8330-d471c46b799a",
+          "body": "¡Inicio de sesión exitoso!",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "type": "BODY_EQUALS",
+              "key": "username",
+              "value": "usuario_registrado",
+              "invert": false
+            },
+            {
+              "type": "BODY_EQUALS",
+              "key": "password",
+              "value": "contrasena_registrada",
+              "invert": false
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "944ba17c-8458-4a6c-812a-8c30ad06b7da",
+          "body": "Usuario o contraseña incorrectos",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "fd3b39e6-49f7-4ac8-8576-c11a9dd30ce7"
+    },
+    {
+      "type": "route",
+      "uuid": "63146d4a-c5c1-4ed0-8414-ebf73d49f253"
+    },
+    {
+      "type": "route",
+      "uuid": "207bf930-994f-45bd-ac5d-6c6984b5e888"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}
