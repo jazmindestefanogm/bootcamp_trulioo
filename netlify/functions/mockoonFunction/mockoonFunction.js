@@ -4,7 +4,7 @@ const mockoon = require('@mockoon/serverless');
 exports.handler = async (event, context) => {
   try {
     // Lee el archivo JSON con la configuración de Mockoon
-    const mockEnv = JSON.parse(fs.readFileSync('./trulioo-api-bootcamp.json', 'utf8'));
+    const mockEnv = JSON.parse(fs.readFileSync('../../../trulioo-api-bootcamp.json', 'utf8'));
 
     // Crea una instancia de MockoonServerless
     const mockoonServerless = new mockoon.MockoonServerless(mockEnv);
